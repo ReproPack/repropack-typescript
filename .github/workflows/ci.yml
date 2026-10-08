@@ -1,0 +1,11 @@
+name: documentation-ci
+on:
+  push:
+  pull_request:
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check documentation foundation
+        run: test -f README.md && test -f docs/ARCHITECTURE.md && test -f PROJECT_STATE.md
