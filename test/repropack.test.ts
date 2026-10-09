@@ -85,3 +85,9 @@ test("rejects altered content and extracts below the destination", async () => {
   await import("node:fs/promises").then(({ rm }) => rm(destination, { recursive: true, force: true }));
   assert.equal(defaultLimits().maxEntryBytes, 256 * 1024 * 1024);
 });
+
+test("normalizes malformed archives and enforces reader limits", async () => {
+  assert.throws(() => readBundle(Buffer.from("not a zip")), (error: ReproPackError) => error.code === "malformed-archive");
+  const input = await fixture("minimal-valid");
+  assert.throws(() => readBundle(createBundle(input.manifest, input.evidence), { ...defaultLimits(), maxManifestBytes: 1 }), (error: ReproPackError) => error.code === "limit-exceeded");
+});
