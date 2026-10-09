@@ -6,7 +6,7 @@ export interface RedactionResult { bytes: Buffer; redacted: boolean; warnings: R
 export function redactText(input: string): RedactionResult {
   let privateKey = false; let redacted = false; const warnings: RedactionWarning[] = []; const output: string[] = [];
   for (const line of input.split(/(?<=\n)/)) {
-    const content = line.endsWith("\n") ? line.slice(0, -1) : line; const newline = line.endsWith("\n") ? "\n" : "";
+    const content = line.endsWith("\n") ? line.slice(0, -1).replace(/\r$/, "") : line; const newline = line.endsWith("\n") ? "\n" : "";
     if (privateKey) { redacted = true; if (content.includes("-----END ") && content.endsWith("PRIVATE KEY-----")) privateKey = false; output.push(`[REDACTED]${newline}`); continue; }
     if (content.startsWith("-----BEGIN ") && content.endsWith("PRIVATE KEY-----")) { privateKey = true; redacted = true; warnings.push({ kind: "private-key-block", message: "a private-key block was replaced" }); output.push(`[REDACTED]${newline}`); continue; }
     const bearer = content.toLowerCase().indexOf("bearer ");

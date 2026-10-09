@@ -1,6 +1,6 @@
 # TypeScript mapping for ReproPack 0.1
 
-This is an implementation design artifact for Phase 1. It does not claim that the SDK exists.
+This document maps the implemented native TypeScript SDK to ReproPack 0.1.
 
 | Specification concept | TypeScript mapping | Required behavior |
 |---|---|---|
@@ -14,4 +14,4 @@ This is an implementation design artifact for Phase 1. It does not claim that th
 | Unknown version | `unsupported-version` error | Reject before using evidence |
 | Safe extraction | destination-root checked path operation | Reject links and special files; never execute entries |
 
-The implementation must use native TypeScript and maintained libraries; it must not invoke or link to Rust. The mapping is ready for Phase 2 after independent review of the canonical specification.
+The implementation uses native TypeScript and does not invoke or link to Rust. Current fixture and interoperability evidence covers this implementation; it does not certify future integrations or every possible input.

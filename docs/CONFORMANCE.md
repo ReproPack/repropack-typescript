@@ -1,3 +1,5 @@
 # Conformance
 
-The implementation will consume the canonical Phase 1 fixture manifests from core and compare metadata, evidence bytes, hashes, redaction markers, and error categories. Opening an archive is insufficient. No TypeScript conformance result exists yet.
+The TypeScript implementation consumes the canonical fixtures from `repropack-core` and compares manifest meaning, evidence bytes, hashes, redaction markers, and error categories. Its current test suite covers all applicable semantic catalog cases, and the recorded interoperability matrix covers both directions with Rust and Python for the minimal and redacted fixtures.
+
+These results apply to the current implementation and recorded fixtures. They do not certify future integrations, all possible malformed archives, or every possible implementation.
