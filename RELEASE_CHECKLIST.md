@@ -2,7 +2,7 @@
 
 Do not publish before the canonical specification is frozen, native tests and conformance pass, security cases are evidenced, package validation succeeds, and the core `FINAL_AUDIT.md` is complete.
 
-Current readiness evidence: local typecheck, build, seven tests, npm audit with zero vulnerabilities, and `npm pack --dry-run` pass. Hosted run [37919726963](https://github.com/ReproPack/repropack-typescript/actions/runs/37919726963) also passed. The package remains `private: true`; public npm publication and entry-point/export metadata require explicit owner approval.
+Target release: `0.1.1`. Current readiness evidence: local typecheck, build, seven tests, npm audit with zero vulnerabilities, and `npm pack --dry-run` pass. Hosted run [37919726963](https://github.com/ReproPack/repropack-typescript/actions/runs/37919726963) also passed. The package remains `private: true`; public npm publication and entry-point/export metadata require explicit owner approval.
 
 Post-CI correction: hosted run `37918766424` exposed missing `REPROPACK_CORE` configuration and OS-specific fixture-path conversion. Both were corrected and verified by run `37919726963`.
 
