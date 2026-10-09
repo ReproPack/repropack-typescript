@@ -6,12 +6,12 @@ This roadmap tracks work owned by the native TypeScript repository. Canonical ph
 
 **Complete** means all acceptance criteria have evidence. **In progress** means work has started but exit criteria remain. **Not started** means dependencies are unmet. **Blocked** means a specific blocker is recorded in `PROJECT_STATE.md`. **Deferred** means intentionally postponed.
 
-Current status: **Phase 0 complete; Phase 1 in progress**.
+Current status: **Phase 1 complete by project-owner approval; local Phase 2 not started**.
 
 | Local phase | Status | Dependencies | Deliverables | Acceptance / exit criteria |
 |---|---|---|---|---|
 | 0 — Repository foundation | **Complete** | None | Independent repository, policies, context, roadmap, CI scaffold | Required docs exist, no SDK claims, pushed commit verified |
-| 1 — Specification adoption | **In progress** | Core Phase 1 | Pin reviewed core revision; map manifest, errors, paths, limits, timestamps; add `docs/SPECIFICATION_MAPPING.md` | Every normative rule has a TypeScript mapping and review notes |
+| 1 — Specification adoption | **Complete** | Core Phase 1 | Pin reviewed core revision; map manifest, errors, paths, limits, timestamps; add `docs/SPECIFICATION_MAPPING.md` | Mapping exists and owner approval is recorded |
 | 2 — Native manifest and bundle operations | **Not started** | Local Phase 1 | Native models, JSON validation, archive create/read, inspect, validate, verify, extract | Type checks and tests pass without Rust |
 | 3 — Shared conformance | **Not started** | Core Phase 5, Local Phase 2 | Fixture runner and semantic assertions | All applicable canonical fixtures pass with expected failures |
 | 4 — Interoperability and security | **Not started** | Core Phases 6–9, Local Phase 3 | Cross-language paths and malformed-input tests | Semantics agree; security evidence is recorded |
