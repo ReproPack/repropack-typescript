@@ -14,7 +14,7 @@ async function fixture(id: string): Promise<{ manifest: Manifest; evidence: Map<
   const root = join(fixtureRoot, id);
   const manifest = JSON.parse(await readFile(join(root, "manifest.json"), "utf8")) as Manifest;
   const evidence = new Map<string, Buffer>();
-  for (const entry of manifest.evidence) evidence.set(entry.path, await readFile(join(root, entry.path.replaceAll("/", "\\"))));
+  for (const entry of manifest.evidence) evidence.set(entry.path, await readFile(join(root, ...entry.path.split("/"))));
   return { manifest, evidence };
 }
 

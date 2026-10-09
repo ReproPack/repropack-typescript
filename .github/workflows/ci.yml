@@ -21,6 +21,8 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
       - name: Tests and build
+        env:
+          REPROPACK_CORE: ${{ github.workspace }}/repropack-core
         run: npm test
       - name: Dependency audit
         run: npm audit --audit-level=high
