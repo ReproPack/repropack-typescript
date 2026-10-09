@@ -11,7 +11,7 @@ Current status: **Phase 0 complete; Phase 1 in progress**.
 | Local phase | Status | Dependencies | Deliverables | Acceptance / exit criteria |
 |---|---|---|---|---|
 | 0 — Repository foundation | **Complete** | None | Independent repository, policies, context, roadmap, CI scaffold | Required docs exist, no SDK claims, pushed commit verified |
-| 1 — Specification adoption | **In progress** | Core Phase 1 | Pin reviewed core revision; map manifest, errors, paths, limits, timestamps | Every normative rule has a TypeScript mapping and review notes |
+| 1 — Specification adoption | **In progress** | Core Phase 1 | Pin reviewed core revision; map manifest, errors, paths, limits, timestamps; add `docs/SPECIFICATION_MAPPING.md` | Every normative rule has a TypeScript mapping and review notes |
 | 2 — Native manifest and bundle operations | **Not started** | Local Phase 1 | Native models, JSON validation, archive create/read, inspect, validate, verify, extract | Type checks and tests pass without Rust |
 | 3 — Shared conformance | **Not started** | Core Phase 5, Local Phase 2 | Fixture runner and semantic assertions | All applicable canonical fixtures pass with expected failures |
 | 4 — Interoperability and security | **Not started** | Core Phases 6–9, Local Phase 3 | Cross-language paths and malformed-input tests | Semantics agree; security evidence is recorded |
@@ -25,7 +25,7 @@ Current status: **Phase 0 complete; Phase 1 in progress**.
 
 ### Phase 1 — Specification adoption
 
-**Status:** In progress. The core v0.1 draft, schema, and semantic fixtures now exist. Pin the reviewed core revision and define TypeScript mappings for required/optional fields, unknown fields, future versions, errors, paths, timestamps, hashes, redaction, and limits. **Exit:** two reviewers confirm implementation is possible without Rust.
+**Status:** In progress. The core v0.1 draft, schema, semantic fixtures, and `docs/SPECIFICATION_MAPPING.md` now exist. Pin the reviewed core revision and complete independent review. **Exit:** two reviewers confirm implementation is possible without Rust.
 
 ### Phase 2 — Native manifest and bundle operations
 
