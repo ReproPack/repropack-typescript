@@ -12,6 +12,7 @@ jobs:
         with:
           repository: ReproPack/repropack-core
           path: repropack-core
+          ref: ${{ github.event_name == 'pull_request' && github.head_ref || github.ref_name }}
       - uses: actions/setup-node@v4
         with:
           node-version: 22
