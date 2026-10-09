@@ -1,11 +1,30 @@
-name: documentation-ci
+name: typescript-ci
 on:
   push:
   pull_request:
 jobs:
-  docs:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check documentation foundation
+      - name: Checkout canonical fixtures
+        uses: actions/checkout@v4
+        with:
+          repository: ReproPack/repropack-core
+          path: repropack-core
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Tests and build
+        run: npm test
+      - name: Dependency audit
+        run: npm audit --audit-level=high
+      - name: Package validation
+        run: npm pack --dry-run
+      - name: Documentation foundation
         run: test -f README.md && test -f docs/ARCHITECTURE.md && test -f PROJECT_STATE.md
