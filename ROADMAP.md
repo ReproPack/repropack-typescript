@@ -6,16 +6,16 @@ This roadmap tracks work owned by the native TypeScript repository. Canonical ph
 
 **Complete** means all acceptance criteria have evidence. **In progress** means work has started but exit criteria remain. **Not started** means dependencies are unmet. **Blocked** means a specific blocker is recorded in `PROJECT_STATE.md`. **Deferred** means intentionally postponed.
 
-Current status: **Local Phase 2 complete; local Phase 3 not started**.
+Current status: **Local Phases 0–4 complete; local Phase 5 in progress for v0.1.1 release preparation**.
 
 | Local phase | Status | Dependencies | Deliverables | Acceptance / exit criteria |
 |---|---|---|---|---|
 | 0 — Repository foundation | **Complete** | None | Independent repository, policies, context, roadmap, CI scaffold | Required docs exist, no SDK claims, pushed commit verified |
 | 1 — Specification adoption | **Complete** | Core Phase 1 | Pin reviewed core revision; map manifest, errors, paths, limits, timestamps; add `docs/SPECIFICATION_MAPPING.md` | Mapping exists and owner approval is recorded |
 | 2 — Native manifest and bundle operations | **Complete** | Local Phase 1 | Native models, JSON validation, archive create/read, inspect, validate, verify, extract | Type checks and tests pass without Rust |
-| 3 — Shared conformance | **Not started** | Core Phase 5, Local Phase 2 | Fixture runner and semantic assertions | All applicable canonical fixtures pass with expected failures |
-| 4 — Interoperability and security | **Not started** | Core Phases 6–9, Local Phase 3 | Cross-language paths and malformed-input tests | Semantics agree; security evidence is recorded |
-| 5 — Usability, CI, and release | **Not started** | Local Phase 4, Core Phases 10–14 | SDK docs, optional CLI, CI, package build, audit inputs | Clean examples, package validation, and checklist pass |
+| 3 — Shared conformance | **Complete** | Core Phase 5, Local Phase 2 | Fixture runner and semantic assertions | All applicable canonical fixtures pass with expected failures |
+| 4 — Interoperability and security | **Complete** | Core Phases 6–9, Local Phase 3 | Cross-language paths and malformed-input tests | Semantics agree; security evidence is recorded |
+| 5 — Usability, CI, and release | **In progress** | Local Phase 4, Core Phases 10–14 | SDK docs, optional CLI, CI, package build, audit inputs | Clean examples, package validation, and checklist pass |
 
 ## Detailed phase plans
 
@@ -33,15 +33,15 @@ Current status: **Local Phase 2 complete; local Phase 3 not started**.
 
 ### Phase 3 — Shared conformance
 
-**Status:** Not started. Consume canonical fixtures and compare normalized metadata, evidence bytes, hashes, redaction state, and error categories. Record fixture IDs and tool versions. **Exit:** all applicable valid and invalid fixtures pass.
+**Status:** Complete. The seven implementation tests consume all applicable valid and invalid canonical fixtures, checking normalized metadata, evidence bytes, hashes, redaction state, and error categories. Hosted TypeScript run `37919726963` passed the test suite. **Exit:** met for the current implementation and fixture catalog.
 
 ### Phase 4 — Interoperability and security
 
-**Status:** Not started. Exchange bundles with Rust and Python; test traversal, duplicates, symlinks/special files, decompression limits, oversized input, malicious metadata, malformed text, wrong hashes, unsupported versions, and secret-like values. **Exit:** semantic and security results are recorded.
+**Status:** Complete for the current implementation. Local tests cover malformed archives, unsafe paths, limits, altered content, redaction, and integrity failures; Core hosted run `37919776037` passed all 12 directed Rust/TypeScript/Python paths on Ubuntu and Windows. Future integrations remain outside this phase.
 
 ### Phase 5 — Usability, CI, and release
 
-**Status:** Not started. Stabilize SDK APIs and errors, add justified CLI commands, document clean workflows, run real format/lint/type/test/conformance/build/package CI, and validate package contents. **Exit:** canonical final audit has evidence and no unfinished feature is represented as complete.
+**Status:** In progress for release preparation. SDK APIs, errors, documentation, CI, package validation, and audit inputs have evidence; npm publication remains blocked by `private: true` and unresolved public entry-point decisions. **Exit:** release checklist and publication decisions are complete without representing unpublished work as released.
 
 ## Status-update rules
 
