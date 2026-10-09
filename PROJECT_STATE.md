@@ -1,9 +1,9 @@
 # Project state
 
-- Current phase: Phase 0 — documentation foundation
-- Phase status: complete; foundation committed and pushed after local audit
-- Specification implemented: none; canonical version is proposed `0.1-draft`
+- Current phase: Phase 1 - specification adoption
+- Phase status: in progress; canonical v0.1 draft is available, implementation mapping pending
+- Specification implemented: none; canonical version is 0.1 pending independent review
 - Implementation status: no SDK, CLI, tests, fixtures, or package released
-- Conformance status: not started
+- Conformance status: canonical fixtures exist in core; TypeScript has not passed them
 - Known environment issue: npm/pnpm PowerShell shims are blocked by execution policy in the audit session
-- Next action: implement and test the TypeScript manifest model after Phase 1 freezes the core specification
+- Next action: review and pin the core v0.1 specification, then implement the TypeScript manifest model
