@@ -12,7 +12,7 @@
   <a href="https://github.com/ReproPack/repropack-core/blob/main/docs/SPECIFICATION.md"><img src="https://img.shields.io/badge/spec-ReproPack%200.1-6b4fbb.svg" alt="ReproPack format 0.1"></a>
 </p>
 
-This implementation reads and writes ReproPack bundles without invoking Rust. It is designed for Node.js applications that need deterministic manifests, SHA-256 verification, conservative redaction, and safe extraction.
+This is an independent Node.js implementation of the ReproPack contract. It reads and writes bundles without invoking Rust and is intended for Node.js applications that need deterministic manifests, SHA-256 verification, conservative redaction, and safe extraction.
 
 ## What you get
 
@@ -22,7 +22,7 @@ This implementation reads and writes ReproPack bundles without invoking Rust. It
 - bounded reads and safe extraction that rejects unsafe paths;
 - shared semantic fixtures used by the ReproPack ecosystem.
 
-The canonical specification lives in [repropack-core](https://github.com/ReproPack/repropack-core/blob/main/docs/SPECIFICATION.md). This package is currently marked `private: true` while npm publication and entry-point decisions are reviewed.
+The canonical specification, schema, fixtures, and release policy live in [repropack-core](https://github.com/ReproPack/repropack-core). This repository is currently an unpublished reference implementation: `private: true` is intentional until the owner approves public npm publication and stable entry points. Do not describe it as an installable public package.
 
 ## Quick start
 
@@ -38,6 +38,8 @@ The public SDK surface is exported from `src/model.ts`, `src/bundle.ts`, and `sr
 npm run build
 npm pack --dry-run
 ```
+
+For a public application, use the Core [CI integration example](https://github.com/ReproPack/repropack-core/blob/main/docs/CI_INTEGRATION.md) as the workflow-level starting point. The TypeScript implementation remains separate so Node.js users can adopt it without a Rust runtime.
 
 For the format walkthrough, see the Core [tutorial](https://github.com/ReproPack/repropack-core/blob/main/docs/TUTORIAL.md).
 
