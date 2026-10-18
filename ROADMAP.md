@@ -6,7 +6,7 @@ This roadmap tracks work owned by the native TypeScript repository. Canonical ph
 
 **Complete** means all acceptance criteria have evidence. **In progress** means work has started but exit criteria remain. **Not started** means dependencies are unmet. **Blocked** means a specific blocker is recorded in `PROJECT_STATE.md`. **Deferred** means intentionally postponed.
 
-Current status: **Local Phases 0–4 complete; local Phase 5 in progress for v0.1.1 release preparation**.
+Current status: **Phases 0–4 complete; v0.1.1 GitHub Release complete; npm publication deferred**.
 
 | Local phase | Status | Dependencies | Deliverables | Acceptance / exit criteria |
 |---|---|---|---|---|
