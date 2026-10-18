@@ -24,6 +24,8 @@ This is an independent Node.js implementation of the ReproPack contract. It read
 
 The canonical specification, schema, fixtures, and release policy live in [repropack-core](https://github.com/ReproPack/repropack-core). This repository is currently an unpublished reference implementation: `private: true` is intentional until the owner approves public npm publication and stable entry points. Do not describe it as an installable public package.
 
+For the project map, evidence boundaries, and future contributor work packages, start with the [Core project overview](https://github.com/ReproPack/repropack-core/blob/main/docs/PROJECT_OVERVIEW.md).
+
 ## Quick start
 
 ```bash
