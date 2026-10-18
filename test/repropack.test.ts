@@ -165,8 +165,39 @@ test("bounds deflate output before materializing it", async () => {
   assert.throws(() => readBundle(malformed), (error: ReproPackError) => error.code === "malformed-archive");
 });
 
+test("rejects encrypted entry flags before reading content", async () => {
+  const input = await fixture("minimal-valid");
+  const archive = createBundle(input.manifest, input.evidence);
+  const local = archive.indexOf(Buffer.from([0x50, 0x4b, 0x03, 0x04]), 1);
+  const central = archive.indexOf(Buffer.from([0x50, 0x4b, 0x01, 0x02]), 1);
+  assert.notEqual(local, -1); assert.notEqual(central, -1);
+  archive.writeUInt16LE(archive.readUInt16LE(local + 6) | 1, local + 6);
+  archive.writeUInt16LE(archive.readUInt16LE(central + 8) | 1, central + 8);
+  assert.throws(() => readBundle(archive), (error: ReproPackError) => error.code === "encrypted-entry");
+});
+
+test("rejects a compression-bomb-sized entry before inflation", async () => {
+  const input = await fixture("minimal-valid");
+  const bytes = Buffer.alloc(1024 * 1024, 0x78);
+  input.evidence.set("evidence/message.txt", bytes);
+  const archive = createBundle(input.manifest, input.evidence);
+  assert.throws(() => readBundle(archive, { ...defaultLimits(), maxEntryBytes: 4096 }), (error: ReproPackError) => error.code === "limit-exceeded");
+});
+
 test("normalizes malformed archives and enforces reader limits", async () => {
   assert.throws(() => readBundle(Buffer.from("not a zip")), (error: ReproPackError) => error.code === "malformed-archive");
   const input = await fixture("minimal-valid");
   assert.throws(() => readBundle(createBundle(input.manifest, input.evidence), { ...defaultLimits(), maxManifestBytes: 1 }), (error: ReproPackError) => error.code === "limit-exceeded");
+});
+
+test("rejects deterministic malformed inputs without throwing non-domain errors", () => {
+  let state = 0x5eed;
+  for (let length = 0; length < 512; length += 1) {
+    const candidate = Buffer.alloc(length);
+    for (let index = 0; index < length; index += 1) {
+      state = (state * 1664525 + 1013904223) >>> 0;
+      candidate[index] = state >>> 24;
+    }
+    assert.throws(() => readBundle(candidate), (error: ReproPackError) => typeof error.code === "string");
+  }
 });
