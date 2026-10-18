@@ -6,6 +6,7 @@
 
 - Corrected canonical fixture checkout configuration in CI.
 - Removed OS-specific path conversion from shared fixture tests.
+- Added encrypted-entry, compression-bomb, and deterministic malformed-input tests.
 - Confirmed the corrected commit through hosted CI.
 
 ## 0.1.0 - 2026-10-09
