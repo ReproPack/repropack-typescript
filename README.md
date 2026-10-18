@@ -43,6 +43,8 @@ For a public application, use the Core [CI integration example](https://github.c
 
 For the format walkthrough, see the Core [tutorial](https://github.com/ReproPack/repropack-core/blob/main/docs/TUTORIAL.md).
 
+The v0.1.1 source artifact is available in the [GitHub Release](https://github.com/ReproPack/repropack-typescript/releases/tag/v0.1.1). npm publication is intentionally deferred while this package remains private.
+
 ## Project map
 
 | Need | Start here |
