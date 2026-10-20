@@ -4,7 +4,7 @@ These items are scoped implementation work that can be completed from public rep
 
 ## Stable public package exports
 
-Define `exports`, `types`, `files`, and a documented installable entry point if npm publication is approved. Until then, preserve `private: true` and describe this repository as an unpublished reference implementation.
+The public `exports`, `types`, `files`, and installable entry point are complete for v0.1.1. Future backlog work should improve the public API without weakening package-surface validation.
 
 **Acceptance:** package dry-run contains only intended files; a clean Node.js project can import the documented entry point; type declarations and runtime exports agree; no publication occurs without owner approval.
 
