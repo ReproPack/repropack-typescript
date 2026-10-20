@@ -1,8 +1,23 @@
 {
   "name": "repropack-typescript",
   "version": "0.1.1",
-  "private": true,
+  "description": "Native TypeScript implementation of the ReproPack evidence-bundle format",
+  "license": "MIT",
   "type": "module",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    }
+  },
+  "files": [
+    "dist/src",
+    "README.md",
+    "LICENSE",
+    "docs/CONFORMANCE.md"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "npm run build && node --test dist/test/repropack.test.js",

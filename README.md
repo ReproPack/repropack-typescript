@@ -22,7 +22,7 @@ This is an independent Node.js implementation of the ReproPack contract. It read
 - bounded reads and safe extraction that rejects unsafe paths;
 - shared semantic fixtures used by the ReproPack ecosystem.
 
-The canonical specification, schema, fixtures, and release policy live in [repropack-core](https://github.com/ReproPack/repropack-core). This repository is currently an unpublished reference implementation: `private: true` is intentional until the owner approves public npm publication and stable entry points. Do not describe it as an installable public package.
+The canonical specification, schema, fixtures, and release policy live in [repropack-core](https://github.com/ReproPack/repropack-core). The package exports its public SDK from the package root after building.
 
 For the project map, evidence boundaries, and future contributor work packages, start with the [Core project overview](https://github.com/ReproPack/repropack-core/blob/main/docs/PROJECT_OVERVIEW.md).
 
@@ -32,6 +32,7 @@ For the project map, evidence boundaries, and future contributor work packages, 
 npm ci
 npm run typecheck
 npm test
+npm install repropack-typescript
 ```
 
 The public SDK surface is exported from `src/model.ts`, `src/bundle.ts`, and `src/redaction.ts`. Build the package with:
@@ -45,7 +46,7 @@ For a public application, use the Core [CI integration example](https://github.c
 
 For the format walkthrough, see the Core [tutorial](https://github.com/ReproPack/repropack-core/blob/main/docs/TUTORIAL.md).
 
-The v0.1.1 source artifact is available in the [GitHub Release](https://github.com/ReproPack/repropack-typescript/releases/tag/v0.1.1). npm publication is intentionally deferred while this package remains private.
+The v0.1.1 source artifact is available in the [GitHub Release](https://github.com/ReproPack/repropack-typescript/releases/tag/v0.1.1). npm publication follows the repository's release checklist.
 
 ## Project map
 
