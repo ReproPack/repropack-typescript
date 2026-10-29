@@ -1,18 +1,24 @@
 # ReproPack for TypeScript
 
-<p align="center">
-  <img src="docs/architecture.svg" alt="ReproPack TypeScript implementation architecture" width="900">
-</p>
-
-<p align="center"><strong>Native TypeScript support for the language-neutral ReproPack evidence-bundle format.</strong></p>
+<p align="center"><img src="assets/hero-v0.1.1.svg" alt="ReproPack TypeScript: native Node.js adapter for independent lifecycle evidence" width="100%"></p>
 
 <p align="center">
   <a href="https://github.com/ReproPack/repropack-typescript/actions/workflows/ci.yml"><img src="https://github.com/ReproPack/repropack-typescript/actions/workflows/ci.yml/badge.svg" alt="TypeScript CI"></a>
+  <a href="https://img.shields.io/badge/runtime-Node.js%2022-2f6f9f"><img src="https://img.shields.io/badge/runtime-Node.js%2022-2f6f9f" alt="Node.js 22"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-2f6f9f.svg" alt="MIT license"></a>
-  <a href="https://github.com/ReproPack/repropack-core/blob/main/docs/SPECIFICATION.md"><img src="https://img.shields.io/badge/spec-ReproPack%200.1-6b4fbb.svg" alt="ReproPack format 0.1"></a>
+  <a href="https://www.npmjs.com/package/repropack-typescript"><img src="https://img.shields.io/npm/v/repropack-typescript" alt="npm version"></a>
+  <a href="https://img.shields.io/badge/status-v0.1.1%20released-2ea44f"><img src="https://img.shields.io/badge/status-v0.1.1%20released-2ea44f" alt="v0.1.1 released"></a>
 </p>
 
-This is an independent Node.js implementation of the ReproPack contract. It reads and writes bundles without invoking Rust and is intended for Node.js applications that need deterministic manifests, SHA-256 verification, conservative redaction, and safe extraction.
+ReproPack for TypeScript is a native Node.js SDK for creating, reading, validating, verifying, redacting, and safely extracting ReproPack evidence bundles. It connects Node.js tools to the shared contract without invoking Rust.
+
+## Repository role
+
+This repository is the TypeScript implementation and adapter. It owns the Node.js package, typed APIs, stored-ZIP I/O, integrity helpers, safe extraction, and implementation-level tests. The canonical format remains in [repropack-core](https://github.com/ReproPack/repropack-core).
+
+## Architecture
+
+<p align="center"><img src="docs/architecture.svg" alt="ReproPack TypeScript implementation architecture" width="900"></p>
 
 ## What you get
 
@@ -22,11 +28,9 @@ This is an independent Node.js implementation of the ReproPack contract. It read
 - bounded reads and safe extraction that rejects unsafe paths;
 - shared semantic fixtures used by the ReproPack ecosystem.
 
-The canonical specification, schema, fixtures, and release policy live in [repropack-core](https://github.com/ReproPack/repropack-core). The package exports its public SDK from the package root after building.
+The SDK consumes the Core specification and shared fixtures independently. Passing conformance and interoperability checks does not certify future integrations or arbitrary external consumers.
 
-For the project map, evidence boundaries, and future contributor work packages, start with the [Core project overview](https://github.com/ReproPack/repropack-core/blob/main/docs/PROJECT_OVERVIEW.md).
-
-## Quick start
+## Quickstart
 
 ```bash
 npm ci
@@ -42,13 +46,9 @@ npm run build
 npm pack --dry-run
 ```
 
-For a public application, use the Core [CI integration example](https://github.com/ReproPack/repropack-core/blob/main/docs/CI_INTEGRATION.md) as the workflow-level starting point. The TypeScript implementation remains separate so Node.js users can adopt it without a Rust runtime.
+For the format walkthrough, see the Core [tutorial](https://github.com/ReproPack/repropack-core/blob/main/docs/TUTORIAL.md) and [CI integration example](https://github.com/ReproPack/repropack-core/blob/main/docs/CI_INTEGRATION.md).
 
-For the format walkthrough, see the Core [tutorial](https://github.com/ReproPack/repropack-core/blob/main/docs/TUTORIAL.md).
-
-The v0.1.1 source artifact is available in the [GitHub Release](https://github.com/ReproPack/repropack-typescript/releases/tag/v0.1.1). npm publication follows the repository's release checklist.
-
-## Project map
+## Documentation and status
 
 | Need | Start here |
 | --- | --- |
@@ -61,8 +61,16 @@ The v0.1.1 source artifact is available in the [GitHub Release](https://github.c
 
 ## Status
 
-The current implementation passes the shared semantic fixtures and the coordinated cross-language interoperability matrix. Future integrations and npm publication are not implied by that result.
+v0.1.1 is released on GitHub and `repropack-typescript@0.1.1` is publicly available on npm. Future integrations remain outside the current package contract.
 
-## License
+## Related repositories
 
-MIT. See [LICENSE](LICENSE).
+| Repository | Role | Link |
+| --- | --- | --- |
+| **repropack-core** | Specification, schema, fixtures, Rust reference model, and CLI | [Core](https://github.com/ReproPack/repropack-core) |
+| **repropack-typescript** | Native Node.js SDK and adapter | This repository |
+| **repropack-python** | Native Python SDK and adapter | [Python](https://github.com/ReproPack/repropack-python) |
+
+## Project links
+
+[License](LICENSE) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Code of Conduct](CODE_OF_CONDUCT.md) · [Changelog](CHANGELOG.md) · [Support](SUPPORT.md)
